@@ -39,8 +39,8 @@ classDiagram
     
         class Button {
             - lastTimeStateChanged
-            + readState
-            + isPressed
+            + readState()
+            + isPressed()
             
         }
     }
