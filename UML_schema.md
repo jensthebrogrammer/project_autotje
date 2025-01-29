@@ -38,6 +38,10 @@ classDiagram
         }
     
         class Button {
+            - lastTimeStateChanged
+            + readState
+            + isPressed
+            
         }
     }
 
