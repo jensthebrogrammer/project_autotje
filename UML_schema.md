@@ -23,21 +23,29 @@ classDiagram
             + forward()
             + backward()
             + spin()
+            + stop()
         }
 
-        class Reciever {
-
+        class RadioCom {
+            - channel
+            - recieved
+            + read_channel()
+            + setChannel()
+            + write()
         }
     }
 
     namespace microbit2 {
         class Remote {
-        }
-    
-        class Sender {
+            - btnPin1
+            - btnPin2
+            - btnPin3
+            - btnPin4
+            + update()
         }
     
         class Button {
+            - buttonPin
             - lastTimeStateChanged
             + readState()
             + isPressed()
@@ -45,9 +53,10 @@ classDiagram
         }
     }
 
-    MotorDriver --|> Autotje
-    Reciever --|> Autotje
-    Remote *-- Sender
-    Remote <|-- Button
-    MotorDriver <|-- Motor
+    Autotje <|-- RadioCom
+    Autotje <|-- MotorDriver
+    RadioCom --|> Remote
+    Remote *-- Button
+    Motor --* MotorDriver
+
 ```
