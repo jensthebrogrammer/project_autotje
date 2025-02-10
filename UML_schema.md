@@ -1,7 +1,13 @@
 ```mermaid
 classDiagram
     namespace microbit1 {
-        class Autotje {
+        class Autootje {
+            
+            + drive()
+            + turn()
+            + stop()
+            + setSpeed()
+            + receiveCommand()
             
         }
 
@@ -53,8 +59,8 @@ classDiagram
         }
     }
 
-    Autotje *-- RadioCom
-    Autotje <|-- MotorDriver
+    Autootje *-- RadioCom
+    Autootje <|-- MotorDriver
     RadioCom --|> Remote
     Remote *-- Button
     Motor --* MotorDriver
