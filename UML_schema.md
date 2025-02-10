@@ -53,7 +53,7 @@ classDiagram
         }
     }
 
-    Autotje <|-- RadioCom
+    Autotje *-- RadioCom
     Autotje <|-- MotorDriver
     RadioCom --|> Remote
     Remote *-- Button
