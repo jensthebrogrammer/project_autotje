@@ -3,11 +3,7 @@ classDiagram
     namespace microbit1 {
         class Autootje {
             
-            + drive()
-            + turn()
-            + stop()
-            + setSpeed()
-            + receiveCommand()
+            + update()
             
         }
 
@@ -18,6 +14,8 @@ classDiagram
             - maxVal
             + forward()
             + backward()
+            + setMinVal()
+            + setMaxVal()
         }
         
         class MotorDriver {
@@ -30,6 +28,7 @@ classDiagram
             + backward()
             + spin()
             + stop()
+            + setSpeed()
         }
 
         class RadioCom {
