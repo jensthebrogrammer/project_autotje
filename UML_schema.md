@@ -59,7 +59,7 @@ classDiagram
     }
 
     Autootje *-- RadioCom
-    Autootje <|-- MotorDriver
+    Autootje *-- MotorDriver
     RadioCom --|> Remote
     Remote *-- Button
     Motor --* MotorDriver
