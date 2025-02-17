@@ -35,8 +35,10 @@ classDiagram
             - channel
             - recieved
             + read_channel()
-            + setChannel()
+            + set_channel()
             + write()
+            + on()
+            + off()
         }
     }
 
