@@ -32,6 +32,11 @@ class RadioCom:
         self.received = radio.receive()
         return self.received
 
+    # to write to the channel
+    @staticmethod
+    def write(message):
+        radio.send(message)
+
     # a static method is a method that doesn't require self to operate
     @staticmethod
     def on():

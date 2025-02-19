@@ -54,8 +54,10 @@ classDiagram
         class Button {
             - buttonPin
             - lastTimeStateChanged
-            + readState()
-            + isPressed()
+            - pull_up
+            - debounce
+            + read_state()
+            + is_pressed()
             
         }
     }
