@@ -17,3 +17,5 @@ class Motordriver:
             self.__minVal = minVal
         else:
             print("minVal moet tussen 0 en 255 liggen")
+
+
