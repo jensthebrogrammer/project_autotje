@@ -1,7 +1,7 @@
 from microbit import *
 
-class Motordriver:
-    def __init__(self, motorPin1, motorPin2, minVal, maxVal, motorPwmPin):
+class Motor:
+    def __init__(self, motorPin1, motorPin2, motorPwmPin, minVal, maxVal):
         self.__motorPwmPin = motorPwmPin
         self.__motorPin1 = motorPin1
         self.__motorPin2 = motorPin2
