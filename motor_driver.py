@@ -2,21 +2,60 @@ from microbit import *
 from Motor import *
 
 class Motordriver:
-    def __init__(self, motor1, motor2, speed=0):
+    def __init__(self, motor1, motor2, motorpwmpin1, motorpwmpin2, speed=0):
         self.motor1 = Motor(1, 2, 3, 0, 255 )
         self.motor2 = Motor(4, 5, 6, 0, 255)
-        self.__speed = speed
+        self.__speed = self.setspeed(speed)
+        self.__motorPwmPin1 = motorpwmpin1
+
+    ###########################################################################################
+    # MOTORPWMPIN1
+
+    @property
+    def motorpwmpin1(self):
+        return self.__motorPwmPin1
+
+    @motorpwmpin1.setter
+    def motorpwmpin1(self, motorPwmPin1):
+        VALID_PINS = [pin0, pin1, pin2, pin8, pin12, pin13, pin14, pin15, pin16]
+        if motorPwmPin1 in VALID_PINS:
+            self.__motorPwmPin1 = motorPwmPin1
+        else:
+            print("Kies een geldige PWM pin (pin0, pin1, pin2, pin8, pin12, pin13, pin14, pin15, pin16)")
+
+
+###########################################################################################
+    # MOTORPWMPIN2
+
+    @property
+    def motorpwmpin2(self):
+        return self.__motorPwmPin2
+
+    @motorpwmpin2.setter
+    def motorpwmpin2(self, motorPwmPin2):
+        VALID_PINS = [pin0, pin1, pin2, pin8, pin12, pin13, pin14, pin15, pin16]
+        if motorPwmPin2 in VALID_PINS:
+            self.__motorPwmPin2 = motorPwmPin2
+        else:
+            print("Kies een geldige PWM pin (pin0, pin1, pin2, pin8, pin12, pin13, pin14, pin15, pin16)")
 
     @property
     def speed (self):
         return self.__speed
 
-    @speed.setter
-    def speed(self, speed):
+
+    def setspeed (self, speed):
         if self.motor1.minval <= speed <= self.motor1.maxval and self.motor2.minval <= speed <= self.motor2.maxval :
-            self.__speed = speed
+            return speed
         else:
             print("Speed moet tussen minVal en maxVal zijn")
+            return None
+
+
+    @speed.setter
+    def speed(self, speed):
+        self.__speed = speed
+
 
     def forward(self):
         self.motor1.motorpin1.write_digital(1)

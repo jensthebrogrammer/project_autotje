@@ -1,8 +1,8 @@
 from microbit import *
 
 class Motor:
-    def __init__(self, motorPin1, motorPin2, motorPwmPin, minVal, maxVal):
-        self.__motorPwmPin = motorPwmPin
+    def __init__(self, motorPin1, motorPin2, minVal, maxVal):
+        display.off
         self.__motorPin1 = motorPin1
         self.__motorPin2 = motorPin2
         self.__minVal = minVal
@@ -34,20 +34,6 @@ class Motor:
         else:
             print("maxVal moet tussen 0 en 255 liggen")
 
-    ###########################################################################################
-    # MOTORPWMPIN
-
-    @property
-    def motorpwmpin(self):
-        return self.__motorPwmPin
-
-    @motorpwmpin.setter
-    def motorpwmpin(self, motorPwmPin):
-        VALID_PINS = [pin0, pin1, pin2, pin8, pin12, pin13, pin14, pin15, pin16]
-        if motorPwmPin in VALID_PINS:
-            self.__motorPwmPin = motorPwmPin
-        else:
-            print("Kies een geldige PWM pin (pin0, pin1, pin2, pin8, pin12, pin13, pin14, pin15, pin16)")
 
     ##################################################################################################
     # MOTORPIN1
