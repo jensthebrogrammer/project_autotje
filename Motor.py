@@ -2,14 +2,28 @@ from microbit import *
 
 class Motor:
     def __init__(self, motorPin1, motorPin2, minVal, maxVal):
-        display.off
+        display.off()
         self.__motorPin1 = motorPin1
         self.__motorPin2 = motorPin2
         self.__minVal = minVal
         self.__maxVal = maxVal
 
-    #########################################################################################
-    # MINVAL
+    def forward(self, speed):
+        """Laat de motor vooruit draaien met een gegeven snelheid."""
+        if self.__minVal <= speed <= self.__maxVal:
+            self.__motorPin1.write_analog(speed)
+            self.__motorPin2.write_digital(0)
+        else:
+            print("Snelheid moet tussen minVal en maxVal liggen")
+
+    def backward(self, speed):
+        """Laat de motor achteruit draaien met een gegeven snelheid."""
+        if self.__minVal <= speed <= self.__maxVal:
+            self.__motorPin1.write_digital(0)
+            self.__motorPin2.write_analog(speed)
+        else:
+            print("Snelheid moet tussen minVal en maxVal liggen")
+
     @property
     def minval(self):
         return self.__minVal
@@ -21,8 +35,6 @@ class Motor:
         else:
             print("minVal moet tussen 0 en 255 liggen")
 
-    #########################################################################################
-    # MAXVAL
     @property
     def maxval(self):
         return self.__maxVal
@@ -34,9 +46,6 @@ class Motor:
         else:
             print("maxVal moet tussen 0 en 255 liggen")
 
-
-    ##################################################################################################
-    # MOTORPIN1
     @property
     def motorpin1(self):
         return self.__motorPin1
@@ -49,8 +58,6 @@ class Motor:
         else:
             print("Kies een geldige pin voor motorPin1")
 
-    ##################################################################################################
-    # MOTORPIN2
     @property
     def motorpin2(self):
         return self.__motorPin2
