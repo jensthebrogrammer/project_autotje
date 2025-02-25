@@ -1,5 +1,5 @@
 from microbit import *
-
+from motor_driver import *
 class Motor:
     def __init__(self, motorPin1, motorPin2, minVal, maxVal):
         display.off()
@@ -56,21 +56,24 @@ class Motor:
         return self.__motorPin1
 
     @motorpin1.setter
-    def motorpin1(self, motorPin1):
-        VALID_PINS = [pin0, pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10, pin11, pin12, pin13, pin14, pin15, pin16]
-        if motorPin1 in VALID_PINS:
-            self.__motorPin1 = motorPin1
-        else:
+    def motorpin1(self, motorPin1, motorPin2):
+        UNVALID_PINS = [motorPin2]
+        if motorPin1 in UNVALID_PINS:
+
             print("Kies een geldige pin voor motorPin1.")
+        else:
+            self.__motorPin1 = motorPin1
+
 
     @property
     def motorpin2(self):
         return self.__motorPin2
 
     @motorpin2.setter
-    def motorpin2(self, motorPin2):
-        VALID_PINS = [pin0, pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10, pin11, pin12, pin13, pin14, pin15, pin16]
-        if motorPin2 in VALID_PINS:
-            self.__motorPin2 = motorPin2
-        else:
+    def motorpin2(self, motorPin1, motorPin2):
+        UNVALID_PINS = [motorPin1]
+        if motorPin2 in UNVALID_PINS:
             print("Kies een geldige pin voor motorPin2.")
+        else:
+            self.__motorPin2 = motorPin2
+

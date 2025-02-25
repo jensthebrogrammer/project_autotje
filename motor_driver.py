@@ -2,9 +2,9 @@ from microbit import *
 from motor import *
 
 class Motordriver:
-    def __init__(self, motorpwmpin1, motorpwmpin2, speed=0):
-        self.motor1 = Motor(1, 2, 0, 255 )
-        self.motor2 = Motor(4, 5, 0, 255)
+    def __init__(self, motor1, motor2, motorpwmpin1, motorpwmpin2, speed=0):
+        self.motor1 = motor1
+        self.motor2 = motor2
         self.__speed = self.setspeed(speed)
         self.__motorPwmPin1 = motorpwmpin1
         self.__motorPwmPin2 = motorpwmpin2
@@ -24,8 +24,7 @@ class Motordriver:
         else:
             print("Kies een geldige PWM pin (pin0, pin1, pin2, pin8, pin12, pin13, pin14, pin15, pin16)")
 
-
-###########################################################################################
+    ###########################################################################################
     # MOTORPWMPIN2
 
     @property
@@ -41,40 +40,42 @@ class Motordriver:
             print("Kies een geldige PWM pin (pin0, pin1, pin2, pin8, pin12, pin13, pin14, pin15, pin16)")
 
     @property
-    def speed (self):
+    def speed(self):
         return self.__speed
 
-
-    def setspeed (self, speed):
-        if self.motor1.minval <= speed <= self.motor1.maxval and self.motor2.minval <= speed <= self.motor2.maxval :
+    def setspeed(self, speed):
+        if self.motor1.minval <= speed <= self.motor1.maxval and self.motor2.minval <= speed <= self.motor2.maxval:
             return speed
         else:
             print("Speed moet tussen minVal en maxVal zijn")
             return None
 
-
     @speed.setter
     def speed(self, speed):
         self.__speed = speed
 
-
-    def forward(self):
+    def forward(self, speed):
+        self.__speed = speed
         self.motor1.forward(self.__speed)
         self.motor2.forward(self.__speed)
 
-    def backward(self):
+    def backward(self, speed):
+        self.__speed = speed
         self.motor1.backward(self.__speed)
         self.motor2.backward(self.__speed)
 
-    def turnLeft(self):
+    def turnLeft(self, speed):
+        self.__speed = speed
         self.motor1.stop()
         self.motor2.forward(self.__speed)
 
-    def turnRight(self):
+    def turnRight(self, speed):
+        self.__speed = speed
         self.motor1.forward(self.__speed)
         self.motor2.stop()
 
-    def spin(self):
+    def spin(self, speed):
+        self.__speed = speed
         self.motor1.forward(self.__speed)
         self.motor2.backward(self.__speed)
 
