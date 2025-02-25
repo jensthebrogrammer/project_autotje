@@ -14,7 +14,7 @@ class Motor:
             self.__motorPin1.write_analog(speed)
             self.__motorPin2.write_digital(0)
         else:
-            print("Snelheid moet tussen minVal en maxVal liggen")
+            print("Snelheid moet tussen minVal en maxVal liggen.")
 
     def backward(self, speed):
         """Laat de motor achteruit draaien met een gegeven snelheid."""
@@ -22,7 +22,7 @@ class Motor:
             self.__motorPin1.write_digital(0)
             self.__motorPin2.write_analog(speed)
         else:
-            print("Snelheid moet tussen minVal en maxVal liggen")
+            print("Snelheid moet tussen minVal en maxVal liggen.")
 
     @property
     def minval(self):
@@ -33,7 +33,7 @@ class Motor:
         if 0 <= minVal <= 255:
             self.__minVal = minVal
         else:
-            print("minVal moet tussen 0 en 255 liggen")
+            print("minVal moet tussen 0 en 255 liggen.")
 
     @property
     def maxval(self):
@@ -44,7 +44,7 @@ class Motor:
         if 0 <= maxVal <= 255:
             self.__maxVal = maxVal
         else:
-            print("maxVal moet tussen 0 en 255 liggen")
+            print("maxVal moet tussen 0 en 255 liggen.")
 
     @property
     def motorpin1(self):
@@ -56,7 +56,7 @@ class Motor:
         if motorPin1 in VALID_PINS:
             self.__motorPin1 = motorPin1
         else:
-            print("Kies een geldige pin voor motorPin1")
+            print("Kies een geldige pin voor motorPin1.")
 
     @property
     def motorpin2(self):
@@ -68,4 +68,4 @@ class Motor:
         if motorPin2 in VALID_PINS:
             self.__motorPin2 = motorPin2
         else:
-            print("Kies een geldige pin voor motorPin2")
+            print("Kies een geldige pin voor motorPin2.")
