@@ -22,13 +22,16 @@ classDiagram
             - speed
             - motor1
             - motor2
+            - motorpwmpin1
+            - motorpwmpin2
+            - speed
             + turnLeft()
             + turnRight()
             + forward()
             + backward()
             + spin()
             + stop()
-            + setSpeed()
+            + setspeed()
         }
 
         class RadioCom {
