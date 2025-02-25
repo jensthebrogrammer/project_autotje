@@ -1,5 +1,5 @@
 from microbit import *
-from Motor import *
+from motor import *
 
 class Motordriver:
     def __init__(self, motor1, motor2, motorpwmpin1, motorpwmpin2, speed=0):
