@@ -24,6 +24,11 @@ class Motor:
         else:
             print("Snelheid moet tussen minVal en maxVal liggen.")
 
+    def stop(self):
+        self.__motorPin1.write_digital(0)
+        self.__motorPin2.write_digital(0)
+
+
     @property
     def minval(self):
         return self.__minVal

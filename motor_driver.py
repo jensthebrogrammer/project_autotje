@@ -2,11 +2,12 @@ from microbit import *
 from motor import *
 
 class Motordriver:
-    def __init__(self, motor1, motor2, motorpwmpin1, motorpwmpin2, speed=0):
-        self.motor1 = Motor(1, 2, 3, 0, 255 )
-        self.motor2 = Motor(4, 5, 6, 0, 255)
+    def __init__(self, motorpwmpin1, motorpwmpin2, speed=0):
+        self.motor1 = Motor(1, 2, 0, 255 )
+        self.motor2 = Motor(4, 5, 0, 255)
         self.__speed = self.setspeed(speed)
         self.__motorPwmPin1 = motorpwmpin1
+        self.__motorPwmPin2 = motorpwmpin2
 
     ###########################################################################################
     # MOTORPWMPIN1
@@ -58,40 +59,25 @@ class Motordriver:
 
 
     def forward(self):
-        self.motor1.motorpin1.write_digital(1)
-        self.motor1.motorpin2.write_digital(0)
-        self.motor1.motorpwmpin.write_analog(self.__speed)
-
-        self.motor2.motorpin1.write_digital(1)
-        self.motor2.motorpin2.write_digital(0)
-        self.motor2.motorpwmpin.write_analog(self.__speed)
+        self.motor1.forward(self.__speed)
+        self.motor2.forward(self.__speed)
 
     def backward(self):
-        self.motor1.motorpin1.write_digital(0)
-        self.motor1.motorpin2.write_digital(1)
-        self.motor1.motorpwmpin.write_analog(self.__speed)
-
-        self.motor2.motorpin1.write_digital(0)
-        self.motor2.motorpin2.write_digital(1)
-        self.motor2.motorpwmpin.write_analog(self.__speed)
+        self.motor1.backward(self.__speed)
+        self.motor2.backward(self.__speed)
 
     def turnLeft(self):
-        self.motor1.motorpwmpin.write_analog(0)
-        self.motor2.motorpwmpin.write_analog(self.__speed)
+        self.motor1.stop()
+        self.motor2.forward(self.__speed)
 
     def turnRight(self):
-        self.motor1.motorpwmpin.write_analog(self.__speed)
-        self.motor2.motorpwmpin.write_analog(0)
+        self.motor1.forward(self.__speed)
+        self.motor2.stop()
 
     def spin(self):
-        self.motor1.motorpin1.write_digital(1)
-        self.motor1.motorpin2.write_digital(0)
-        self.motor1.motorpwmpin.write_analog(self.__speed)
-
-        self.motor2.motorpin1.write_digital(0)
-        self.motor2.motorpin2.write_digital(1)
-        self.motor2.motorpwmpin.write_analog(self.__speed)
+        self.motor1.forward(self.__speed)
+        self.motor2.backward(self.__speed)
 
     def stop(self):
-        self.motor1.motorpwmpin.write_analog(0)
-        self.motor2.motorpwmpin.write_analog(0)
+        self.motor1.stop()
+        self.motor2.stop()
