@@ -1,7 +1,6 @@
 from microbit import *
 from radio_com import RadioCom as Com
 from push_button import PushButton as Btn
-import json
 
 
 class Remote(Com):
@@ -21,9 +20,7 @@ class Remote(Com):
     # reading the buttons and sending the correct message
     def update(self):
         # the function write sends it via the radio channel
-        self.write(json.dumps({
-            "topButton": self._btnT.is_pressed(),
-            "bottomButton": self._btnB.is_pressed(),
-            "leftButton": self._btnL.is_pressed(),
-            "rightButton": self._btnR.is_pressed()
-        }))
+        self.write(str(int(self._btnT.is_pressed())))
+        self.write(str(int(self._btnR.is_pressed())))
+        self.write(str(int(self._btnB.is_pressed())))
+        self.write(str(int(self._btnL.is_pressed())))

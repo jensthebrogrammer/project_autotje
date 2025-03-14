@@ -25,6 +25,9 @@ class PushButton:
 
     @staticmethod
     def set_btn_pin(pin):
+        # deactivating all the pins in display mode
+        display.off()
+
         valid_pins = [pin0, pin1, pin2,
                       pin4, pin6, pin7,
                       pin8, pin9, pin10,
