@@ -1,10 +1,14 @@
 from microbit import *
-from motor_driver import *
+
+
 class Motor:
     def __init__(self, motorPin1, motorPin2, minVal, maxVal):
         display.off()
         self.__motorPin1 = motorPin1
         self.__motorPin2 = motorPin2
+
+        # minVal en maxVal zijn er om de motoren te kunnen calibreren
+        # op deze manier kunnen 2 motoren op exact dezelfde snelheid draaien
         self.__minVal = minVal
         self.__maxVal = maxVal
 
@@ -76,4 +80,3 @@ class Motor:
             print("Kies een geldige pin voor motorPin2.")
         else:
             self.__motorPin2 = motorPin2
-

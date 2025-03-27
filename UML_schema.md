@@ -2,9 +2,7 @@
 classDiagram
     namespace microbit1 {
         class Autootje {
-            
             + update()
-            
         }
 
         class Motor {
@@ -12,34 +10,35 @@ classDiagram
             - motorPin2
             - minVal
             - maxVal
-            + forward()
-            + backward()
-            + setMinVal()
-            + setMaxVal()
+            + forward(speed)
+            + backward(speed)
+            + stop()
+            + setspeed(speed)
+            + getMinVal()
+            + setMinVal(minVal)
+            + getMaxVal()
+            + setMaxVal(maxVal)
         }
         
         class MotorDriver {
-            - speed
             - motor1
             - motor2
-            - motorpwmpin1
-            - motorpwmpin2
             - speed
-            + turnLeft()
-            + turnRight()
-            + forward()
-            + backward()
-            + spin()
+            + turnLeft(speed)
+            + turnRight(speed)
+            + forward(speed)
+            + backward(speed)
+            + spin(speed)
             + stop()
-            + setspeed()
+            + setspeed(speed)
         }
 
         class RadioCom {
             - channel
-            - recieved
+            - received
             + read_channel()
-            + set_channel()
-            + write()
+            + set_channel(channel)
+            + write(message)
             + on()
             + off()
         }
@@ -47,28 +46,17 @@ classDiagram
 
     namespace microbit2 {
         class Remote {
-            - btnPin1
-            - btnPin2
-            - btnPin3
-            - btnPin4
+            - btnT
+            - btnA
+            - btnB
             + update()
-        }
-    
-        class Button {
-            - buttonPin
-            - lastTimeStateChanged
-            - pull_up
-            - debounce
-            + read_state()
-            + is_pressed()
-            
         }
     }
 
     Autootje *-- RadioCom
     Autootje *-- MotorDriver
-    RadioCom --|> Remote
-    Remote *-- Button
-    Motor --* MotorDriver
+    MotorDriver *-- Motor
+    Remote <|-- RadioCom
+
 
 ```

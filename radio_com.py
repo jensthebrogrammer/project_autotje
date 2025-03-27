@@ -33,7 +33,13 @@ class RadioCom:
 
     def read_channel(self):
         # reads the channel and returns the found data
+        # it also stores it in received for ease of use
         self.received = radio.receive()
+
+        # the delay is needed because otherwise the receiver will try to read to quickly
+        # this will result in the microbit sometimes doing unexpected tings
+        sleep(10)
+
         return self.received
 
     # to write to the channel
