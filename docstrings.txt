@@ -1,0 +1,84 @@
+"""
+- Autotje(a, b, c, d, e, f ,g ,h ,i, j ,k)
+Args:
+	a) Pin 1 van motor 1.
+	b) Pin 2 van motor 1.
+	c) Minimum van motor 1.
+	d) Maximum van motor 1.
+	e) Pin 1 van motor 2.
+	f) Pin 2 van motor 2.
+	g) Minimum van motor 2.
+	h) Maximum van motor 2.
+	i) Snelheid.
+	k) Kanaal van afstandsbediening.
+        
+Returns:
+	/
+
+
+- Motor(a, b, c, d)
+
+Args:
+	a) Pin 1 van de motor.
+	b) Pin 2 van de motor.
+	c) Minimum van de motor.
+	d) Maximum van de motor.
+Returns:
+	/
+
+
+- forward(a)
+
+Args:
+	a) Snelheid.
+	
+Returns:
+	/
+
+
+- backward(a)
+
+Args:
+	a) Snelheid.
+	
+Returns:
+	/
+
+
+- stop()
+
+Args:
+	/
+	
+Returns:
+	/
+
+
+- turnLeft(a)
+
+Args:
+	a) Snelheid.
+	
+Returns:
+	/
+
+
+- turnRight(a)
+
+Args:
+	a) Snelheid.
+	
+Returns:
+	/
+
+
+- spin(a)
+
+Args:
+	a) Snelheid.
+	
+Returns:
+	/
+"""
+
+
