@@ -1,84 +1,258 @@
 """
-- Autotje(a, b, c, d, e, f ,g ,h ,i, j ,k)
-Args:
-	a) Pin 1 van motor 1.
-	b) Pin 2 van motor 1.
-	c) Minimum van motor 1.
-	d) Maximum van motor 1.
-	e) Pin 1 van motor 2.
-	f) Pin 2 van motor 2.
-	g) Minimum van motor 2.
-	h) Maximum van motor 2.
-	i) Snelheid.
-	k) Kanaal van afstandsbediening.
-        
-Returns:
-	/
 
++ Motor
 
 - Motor(a, b, c, d)
+  Klasse die een enkele motor aanstuurt via twee pinnen met instelbare snelheidsgrenzen.
 
-Args:
-	a) Pin 1 van de motor.
-	b) Pin 2 van de motor.
-	c) Minimum van de motor.
-	d) Maximum van de motor.
-Returns:
-	/
+  Args:
+    a) Pin 1 van de motor.
+    b) Pin 2 van de motor.
+    c) Minimumsnelheid.
+    d) Maximumsnelheid.
 
+  Returns:
+    /
 
-- forward(a)
++ forward(speed)
 
-Args:
-	a) Snelheid.
-	
-Returns:
-	/
+- forward(speed)
+  Laat de motor vooruit draaien met de opgegeven snelheid (tussen min en max).
 
+  Args:
+    speed) Snelheid waarmee de motor vooruit draait (binnen de grenzen).
 
-- backward(a)
+  Returns:
+    /
 
-Args:
-	a) Snelheid.
-	
-Returns:
-	/
++ backward(speed)
 
+- backward(speed)
+  Laat de motor achteruit draaien met de opgegeven snelheid (tussen min en max).
+
+  Args:
+    speed) Snelheid waarmee de motor achteruit draait (binnen de grenzen).
+
+  Returns:
+    /
+
++ stop()
 
 - stop()
+  Stopt de motor door beide pinnen op 0 te zetten.
 
-Args:
-	/
-	
-Returns:
-	/
+  Args:
+    /
+
+  Returns:
+    /
+
++ minval / maxval (properties)
+
+- minval / maxval (properties)
+  Geeft of stelt de minimale of maximale snelheid in (0–255).
+
+  Args:
+    minVal / maxVal) Nieuwe waarde tussen 0 en 255.
+
+  Returns:
+    Huidige waarde of bevestiging van wijziging.
+
++ motorpin1 / motorpin2 (properties)
+
+- motorpin1 / motorpin2 (properties)
+  Geeft of stelt de motorpinnen in (met controle op geldige combinatie).
+
+  Args:
+    motorPin1 / motorPin2) Nieuwe pin, mag niet gelijk zijn aan de andere pin.
+
+  Returns:
+    Huidige waarde of bevestiging van wijziging.
 
 
-- turnLeft(a)
++ Autotje
 
-Args:
-	a) Snelheid.
-	
-Returns:
-	/
+- Autotje(a, b, c, d, e, f, g, h, i, j, k)
+  Maakt een autootje dat bestuurbaar is via radio en twee motoren kan aansturen.
+
+  Args:
+    a) Pin 1 van motor 1.
+    b) Pin 2 van motor 1.
+    c) Minimumsnelheid van motor 1.
+    d) Maximumsnelheid van motor 1.
+    e) Pin 1 van motor 2.
+    f) Pin 2 van motor 2.
+    g) Minimumsnelheid van motor 2.
+    h) Maximumsnelheid van motor 2.
+    i) Beginsnelheid van beide motoren.
+    j) (Oeps, ontbreekt in jouw lijst) → Wordt niet gebruikt in de code.
+    k) Kanaalnummer voor radioverbinding.
+
+  Returns:
+    /
 
 
-- turnRight(a)
++ Motordriver
 
-Args:
-	a) Snelheid.
-	
-Returns:
-	/
+- Motordriver(a, b, c, d, e, f, g, h, i)
+  Stuurt twee motoren aan via een Motor-klasse, met instelbare snelheid en richtingen.
+
+  Args:
+    a) Pin 1 van motor 1.
+    b) Pin 2 van motor 1.
+    c) Minimumsnelheid van motor 1.
+    d) Maximumsnelheid van motor 1.
+    e) Pin 1 van motor 2.
+    f) Pin 2 van motor 2.
+    g) Minimumsnelheid van motor 2.
+    h) Maximumsnelheid van motor 2.
+    i) Beginsnelheid.
+
+  Returns:
+    /
+
++ forward(speed)
+
+- forward(speed)
+  Laat beide motoren vooruit draaien met opgegeven snelheid.
+
+  Args:
+    speed) Gewenste snelheid (binnen geldige grenzen).
+
+  Returns:
+    /
+
++ backward(speed)
+
+- backward(speed)
+  Laat beide motoren achteruit draaien met opgegeven snelheid.
+
+  Args:
+    speed) Gewenste snelheid (binnen geldige grenzen).
+
+  Returns:
+    /
+
++ turnLeft(speed)
+
+- turnLeft(speed)
+  Laat de auto links draaien (rechter motor draait, linker motor stopt).
+
+  Args:
+    speed) Draaisnelheid.
+
+  Returns:
+    /
+
++ turnRight(speed)
+
+- turnRight(speed)
+  Laat de auto rechts draaien (linker motor draait, rechter motor stopt).
+
+  Args:
+    speed) Draaisnelheid.
+
+  Returns:
+    /
 
 
-- spin(a)
++ RadioCom
 
-Args:
-	a) Snelheid.
-	
-Returns:
-	/
+- RadioCom(a)
+  Klasse voor communicatie via radio op de micro:bit. Kan data ontvangen en verzenden via een ingesteld kanaal.
+
+  Args:
+    a) Kanaalnummer voor communicatie (0–79). Standaard = 1.
+
+  Returns:
+    /
+
++ channel (property)
+
+- channel (property)
+  Geeft of stelt het actieve radiokanaal in.
+
+  Args:
+    channel) Geheel getal van 0 tot 79.
+
+  Returns:
+    Huidig kanaal of bevestiging van wijziging.
+
++ set_channel(channel)
+
+- set_channel(channel)
+  Controleert en stelt een geldig kanaal in (0–79).
+
+  Args:
+    channel) Geheel getal voor kanaalinstelling.
+
+  Returns:
+    Geldig kanaalnummer.
+
++ read_channel()
+
+- read_channel()
+  Leest een bericht van het huidige radiokanaal en slaat dit op in `received`.
+
+  Args:
+    /
+
+  Returns:
+    Laatst ontvangen bericht of None.
+
++ write(message)
+
+- write(message)
+  Verstuurt een bericht over het huidige radiokanaal.
+
+  Args:
+    message) Tekstbericht om te verzenden.
+
+  Returns:
+    /
+
++ on()
+
+- on()
+  Zet de radio aan.
+
+  Args:
+    /
+
+  Returns:
+    /
+
++ off()
+
+- off()
+  Zet de radio uit.
+
+  Args:
+    /
+
+  Returns:
+    /
+
+
++ Remote
+
+- Remote(a)
+  Klasse die de functionaliteit van een afstandsbediening via radio imiteert, afgeleid van de RadioCom-klasse.
+
+  Args:
+    a) Kanaalnummer voor communicatie (0–79). Standaard = 1.
+
+  Returns:
+    /
+
++ update()
+
+- update()
+  Leest de status van de knoppen en stuurt een bericht via radio met de toestand van de knoppen (top, links, rechts).
+
+  Args:
+    /
+
+  Returns:
+    /
 """
-
-
