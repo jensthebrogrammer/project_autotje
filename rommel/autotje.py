@@ -1,6 +1,6 @@
 from microbit import *
-from radio_com import RadioCom as Com
-from motor_driver import Motordriver as Driver
+from rommel.radio_com import RadioCom as Com
+from rommel.motor_driver import Motordriver as Driver
 
 
 class Autotje:

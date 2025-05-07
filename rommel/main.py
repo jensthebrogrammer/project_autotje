@@ -14,7 +14,7 @@ def test_met_autotje():
 
 # dit is een simpele voorbeeld code om te module voor de afstandsbediening te gebruiken
 def remote_controller():
-    from remote import Remote
+    from rommel.remote import Remote
 
     # het default channel is 1
     my_remote = Remote()
