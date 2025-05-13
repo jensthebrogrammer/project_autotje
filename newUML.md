@@ -1,4 +1,4 @@
-'''mermaid
+```mermaid
 classDiagram
     class Autotje {
         - Com com
@@ -63,4 +63,4 @@ classDiagram
     Motordriver --> Motor : bevat
     Remote --|> RadioCom : erft van
 
-    '''mermaid
+ ```
