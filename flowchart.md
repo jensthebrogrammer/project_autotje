@@ -1,4 +1,5 @@
-flowchart TD
+''' mermaid
+    flowchart TD
     Start([Start])
     Main[test_met_autotje()]
     InitAuto[Initialiseer Autotje]
@@ -38,3 +39,4 @@ flowchart TD
         RCStart --> InitRemote --> LoopRemote
         LoopRemote --> ReadButtons --> SendMessage --> RCDisplay --> LoopRemote
     end
+    '''
