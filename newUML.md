@@ -59,8 +59,8 @@ classDiagram
     Autotje *-- RadioCom : gebruikt
     Autotje *-- Motordriver : bestuurt
     Motordriver *-- Motor : bevat
-    Remote <|-- RadioCom : erft
+    Remote <|-- RadioCom
 
-    Remote --|> RadioCom : erft van
+
 
  ```
