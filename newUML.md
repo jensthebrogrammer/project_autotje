@@ -17,7 +17,6 @@ classDiagram
             + forward()
             + backward()
             + stop()
-            + speedscalingf
         }
         
         class Motordriver {
