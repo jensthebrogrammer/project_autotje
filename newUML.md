@@ -1,66 +1,66 @@
 ```mermaid
 classDiagram
-    class Autotje {
-        - Com com
-        - Driver driver
-        - int __speed
-        + speed
-        + speed=value
-        + Simple_remote_control()
+    namespace microbit1 {
+        class Autotje {
+            - com: RadioCom
+            - driver: Motordriver
+            - __speed
+            + speed
+            + Simple_remote_control()
+        }
+
+        class Motor {
+            - __motorPin1
+            - __motorPin2
+            - __speed
+            - __speedscalingf
+            - __speedSignal
+            + forward()
+            + backward()
+            + stop()
+            + speed
+            + speedscalingf
+        }
+        
+        class Motordriver {
+            - motor1: Motor
+            - motor2: Motor
+            - __speed
+            + speed
+            + forward()
+            + backward()
+            + turnLeft()
+            + turnRight()
+            + spinLeft()
+            + spinRight()
+            + stop()
+        }
+
+        class RadioCom {
+            - __channel
+            - received
+            + read_channel()
+            + channel
+            + write(message)
+            + on()
+            + off()
+        }
     }
 
-    class Motordriver {
-        - Motor motor1
-        - Motor motor2
-        - int __speed
-        + speed
-        + speed=value
-        + forward()
-        + backward()
-        + turnLeft()
-        + turnRight()
-        + spinLeft()
-        + spinRight()
-        + stop()
+    namespace microbit2 {
+        class Remote {
+            - __btnT
+            - __btnA
+            - __btnB
+            + update()
+        }
     }
 
-    class Motor {
-        - motorPin1
-        - motorPin2
-        - speed
-        - speedscalingf
-        - speedSignal
-        + speed
-        + speed=value
-        + speedscalingf
-        + speedscalingf=value
-        + forward()
-        + backward()
-        + stop()
-    }
+    Autotje *-- RadioCom : gebruikt
+    Autotje *-- Motordriver : bestuurt
+    Motordriver *-- Motor : bevat
+    Remote <|-- RadioCom : erft
 
-    class RadioCom {
-        - int __channel
-        + received
-        + channel
-        + channel=value
-        + read_channel()
-        + write(message)
-        + on()
-        + off()
-    }
-
-    class Remote {
-        - pin _btnT
-        - pin _btnA
-        - pin _btnB
-        + update()
-    }
-
-    %% Relaties
-    Autotje --> RadioCom : gebruikt
-    Autotje --> Motordriver : gebruikt
-    Motordriver --> Motor : bevat
     Remote --|> RadioCom : erft van
 
  ```
