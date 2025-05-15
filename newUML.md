@@ -5,7 +5,6 @@ classDiagram
             - com: RadioCom
             - driver: Motordriver
             - __speed
-            + speed
             + Simple_remote_control()
         }
 
@@ -18,7 +17,6 @@ classDiagram
             + forward()
             + backward()
             + stop()
-            + speed
             + speedscalingf
         }
         
@@ -40,7 +38,6 @@ classDiagram
             - __channel
             - received
             + read_channel()
-            + channel
             + write(message)
             + on()
             + off()
