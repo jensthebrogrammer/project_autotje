@@ -24,7 +24,6 @@ classDiagram
             - motor1: Motor
             - motor2: Motor
             - __speed
-            + speed
             + forward()
             + backward()
             + turnLeft()
