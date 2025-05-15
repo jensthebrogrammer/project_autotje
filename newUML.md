@@ -56,9 +56,9 @@ classDiagram
         }
     }
 
-    Autotje *-- RadioCom : gebruikt
-    Autotje *-- Motordriver : bestuurt
-    Motordriver *-- Motor : bevat
+    Autotje *-- RadioCom 
+    Autotje *-- Motordriver 
+    Motordriver *-- Motor 
     Remote <|-- RadioCom
 
 
