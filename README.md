@@ -93,4 +93,3 @@ m.speedscalingf = 90
 * Gebruik pin12 niet (gereserveerd intern)
 * Radiokanaal moet tussen 0 en 80 liggen
 * Snelheid en schaalfactor moeten tussen 0 en 100 liggen
-* Gebruik `panic(code)` om foutcodes te tonen op de Microbit
