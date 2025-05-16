@@ -1,80 +1,61 @@
 # 🚗 Autootje & Remote Cheatsheet
 
-Voor gebruik met de `autotje`, `motor_driver`, `motor`, en `radio_com` bibliotheek op de Micro:bit.
+Voor gebruik met de `autotje`, `motor_driver`, `motor` en `radio_com` bibliotheken op de Micro\:bit.
 
 ---
 
-## 📁 Structuur van de bibliotheek
+## 📁 Bestanden
 
-- `autotje.py`: Hoofdlogica voor voertuig en afstandsbediening  
-- `motor.py`: Controle van een enkele motor  
-- `motor_driver.py`: Twee motoren combineren voor beweging  
-- `radio_com.py`: Communicatie via radio  
-- `main.py`: Startcode om alles te laten draaien  
-
----
-
-## 1. Autootje gebruiken (ontvanger)
-
-Gebruik dit op de Microbit in het autootje:
-
-```python
-from autotje import Autotje
-
-auto = Autotje(
-    motor1Pin1=pin2,
-    motor1Pin2=pin8,
-    motor2Pin1=pin1,
-    motor2Pin2=pin0,
-    speedscalingfactorf1=100,
-    speedscalingfactorf2=100,
-    speed=100,
-    channel=1
-)
-```
-
-### 🔧 Parameters
-
-- `motorXPinY`: Motorpinconfiguratie  
-- `speed`: snelheid (0–100)  
-- `channel`: radiokanaal (0–80)  
+* `autotje.py`: Regelt auto en afstandsbediening
+* `motor.py`: Stuurt één motor aan
+* `motor_driver.py`: Combineert twee motoren
+* `radio_com.py`: Radio communicatie
+* `main.py`: Start het programma
 
 ---
 
-## 2. Afstandsbediening gebruiken (zender)
+## 1. Autootje (ontvanger)
 
-Gebruik dit op een tweede Microbit als remote:
+Gebruik dit op de Microbit in het autootje. Deze ontvangt signalen en stuurt de motoren aan.
 
-```python
-from autotje import Remote
+### Instellingen
 
-remote = Remote(channel=1)
+* **motorXPinY**: geeft aan welke pinnen verbonden zijn met de motoren
+* **speed**: snelheid van de auto (0–100)
+* **channel**: radiokanaal voor communicatie (0–80)
 
-while True:
-    remote.update()
-```
-
-### 🔘 Knoppen
-
-- Touch logo: vooruit  
-- Knop A + B samen: achteruit  
-- Knop A: spin links  
-- Knop B: spin rechts  
+De functie `Simple_remote_control()` zorgt dat het autootje automatisch luistert naar afstandsbediening.
 
 ---
 
-## 3. Extra functies & instellingen
+## 2. Afstandsbediening (zender)
 
-### 📡 Radio instellen
+Gebruik dit op een tweede Microbit. Hiermee stuur je het autootje aan.
 
-```python
-remote.channel = 5
-RadioCom.on()
-RadioCom.off()
-```
+### Besturing
 
-### ⚙️ Motor handmatig testen
+* **Touch logo**: vooruit rijden
+* **Knoppen A + B**: achteruit rijden
+* **Knop A**: linksom draaien
+* **Knop B**: rechtsom draaien
 
+De `update()` functie kijkt telkens of een knop is ingedrukt en stuurt het juiste signaal naar het autootje.
+
+---
+
+## 3. Extra functies
+
+### 📡 Radio
+
+* Je kunt het radiokanaal aanpassen als meerdere groepjes tegelijk werken
+* Zet radio aan of uit met `RadioCom.on()` en `RadioCom.off()`
+
+### ⚙️ Motor testen
+
+* Je kunt een motor apart testen door hem handmatig aan te sturen (vooruit, achteruit, stop)
+* Instelbare snelheid en schaalfactor
+* Bijvoorbeeld:
+  
 ```python
 from motor import Motor
 
@@ -86,34 +67,22 @@ m.speed = 80
 m.speedscalingf = 90
 ```
 
-### 🔁 Motordriver handmatig gebruiken
+### 🔁 Motordriver
 
-```python
-from motor_driver import Motordriver
-
-driver = Motordriver(pin1, pin2, pin8, pin12)
-driver.forward()
-driver.spinLeft()
-driver.turnRight()
-driver.stop()
-```
+* De motordriver stuurt twee motoren tegelijk aan
+* Je kunt deze laten rijden, draaien of stoppen
 
 ---
 
-## 4. Debug & hulp
+## 4. Debug & Tips
 
-```python
-import autotje
-autotje.help()
-```
+* `autotje.help()` toont uitleg op de Microbit
 
----
+### ⚠️ Belangrijke aandachtspunten
 
-## ⚠️ Belangrijke aandachtspunten
-
-- Gebruik niet twee keer dezelfde pin voor een motor.  
-- Vermijd display-pinnen: `pin3`, `pin4`, `pin6`, `pin7`, `pin10`.  
-- `pin12` is gereserveerd (`UNVALID_PINS`).  
-- Radiokanaal moet tussen 0 en 80 liggen.  
-- `speed` en `speedscalingf` moeten tussen 0 en 100 liggen.  
-- Gebruik `panic(code)` om fouten visueel te tonen op de Microbit.  
+* Gebruik nooit twee keer dezelfde pin voor verschillende motoren
+* Vermijd pin3, pin4, pin6, pin7, pin10 (die zijn gereserveerd voor display)
+* Gebruik pin12 niet (gereserveerd intern)
+* Radiokanaal moet tussen 0 en 80 liggen
+* Snelheid en schaalfactor moeten tussen 0 en 100 liggen
+* Gebruik `panic(code)` om foutcodes te tonen op de Microbit
