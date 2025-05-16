@@ -31,9 +31,6 @@ auto = Autotje(
     speed=100,
     channel=1
 )
-
-while True:
-    auto.Simple_remote_control()
 ```
 
 ### 🔧 Parameters
