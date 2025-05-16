@@ -11,6 +11,7 @@ Voor gebruik met de `autotje`, `motor_driver`, `motor` en `radio_com` bibliothek
 * `motor_driver.py`: Combineert twee motoren
 * `radio_com.py`: Radio communicatie
 * `main.py`: Start het programma
+* `demo_code.py`: Voorbeeld code
 
 ---
 
