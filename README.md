@@ -59,7 +59,7 @@ De `update()` functie kijkt telkens of een knop is ingedrukt en stuurt het juist
 ```python
 from motor import Motor
 
-m = Motor(pin1, pin2)
+m = Motor(pin1, pin2,speed = 80, speedscalingf = 90)
 m.forward()
 m.backward()
 m.stop()
@@ -71,6 +71,14 @@ m.speedscalingf = 90
 
 * De motordriver stuurt twee motoren tegelijk aan
 * Je kunt deze laten rijden, draaien of stoppen
+
+  ```python
+  from motor_driver import Motordriver
+
+  driver = Motordriver(pin1, pin2, pin8, pin12)
+
+  driver.forward()
+   ```
 
 ---
 
