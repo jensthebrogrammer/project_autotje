@@ -11,6 +11,7 @@ Voor gebruik met de `autotje`, `motor_driver`, `motor` en `radio_com` bibliothek
 * `motor_driver.py`: Combineert twee motoren
 * `radio_com.py`: Radio communicatie
 * `main.py`: Start het programma
+* `demo_code.py`: Voorbeeld code
 
 ---
 
@@ -32,7 +33,7 @@ De functie `Simple_remote_control()` zorgt dat het autootje automatisch luistert
 
 Gebruik dit op een tweede Microbit. Hiermee stuur je het autootje aan.
 
-### Besturing
+### 🎮 Besturing
 
 * **Touch logo**: vooruit rijden
 * **Knoppen A + B**: achteruit rijden
@@ -40,6 +41,9 @@ Gebruik dit op een tweede Microbit. Hiermee stuur je het autootje aan.
 * **Knop B**: rechtsom draaien
 
 De `update()` functie kijkt telkens of een knop is ingedrukt en stuurt het juiste signaal naar het autootje.
+Het signaal is een lijst van 3 bits `[0,1,0]`.
+De waarde van elke bit komt overeen met de status van de knoppen.
+`[touch_logo, links, rechts]`
 
 ---
 
