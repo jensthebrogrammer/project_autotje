@@ -15,7 +15,10 @@ Voor gebruik met de `autotje`, `motor_driver`, `motor` en `radio_com` bibliothek
 
 ---
 
-## 1. Autootje (ontvanger)
+## 1. Demo code
+In `demo_code.py` kan je een voorbeeld vinden over hoe je de module moet gebruiken.
+
+## 2. Autootje (ontvanger)
 
 Gebruik dit op de Microbit in het autootje. Deze ontvangt signalen en stuurt de motoren aan.
 
@@ -29,7 +32,7 @@ De functie `Simple_remote_control()` zorgt dat het autootje automatisch luistert
 
 ---
 
-## 2. Afstandsbediening (zender)
+## 3. Afstandsbediening (zender)
 
 Gebruik dit op een tweede Microbit. Hiermee stuur je het autootje aan.
 
@@ -47,7 +50,7 @@ De waarde van elke bit komt overeen met de status van de knoppen.
 
 ---
 
-## 3. Extra functies
+## 4. Extra functies
 
 ### 📡 Radio
 
@@ -86,7 +89,7 @@ m.speedscalingf = 90
 
 ---
 
-## 4. Debug & Tips
+## 5. Debug & Tips
 
 * `autotje.help()` toont uitleg op de Microbit
 
