@@ -19,6 +19,7 @@ classDiagram
             + stop()
             <<class attribute>> __display_pins
             <<class attribute>> UNVALID_PINS
+            <<class attribute>> __all_pins
         }
         
         class Motordriver {
